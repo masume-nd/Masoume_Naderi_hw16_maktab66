@@ -1,25 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { Form, Button } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Loginform from "./components/loginForm/LoginForm";
+import Signinform from "./components/signInForm/SigninForm";
+import "./App.css";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+   const [isLoggedIn, setIsLogedIn] = useState(true);
+   const handleLoginClick = () => {
+      setIsLogedIn(true);
+   };
+
+   const handleSignInClick = () => {
+      setIsLogedIn(false);
+   };
+
+   return (
+      <div className="signin-form-containter">
+         <Form className="signin-form">
+            <Form.Group className="d-flex mb-3">
+               <Button
+                  onClick={handleLoginClick}
+                  className="my-btn  me-1"
+                  variant="success"
+               >
+                  ورود
+               </Button>
+               <Button
+                  onClick={handleSignInClick}
+                  className="my-btn ms-3"
+                  variant="secondary"
+               >
+                  ثبت نام
+               </Button>
+            </Form.Group>
+            <div className="App">
+               {isLoggedIn ? <Loginform /> : <Signinform />}
+            </div>
+         </Form>
+      </div>
+   );
 }
 
 export default App;
