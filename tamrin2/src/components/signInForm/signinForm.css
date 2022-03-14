@@ -13,7 +13,7 @@
   border: 1px gray solid;
   border-radius: 0;
   color: aliceblue;
-  background: transparent;
+  background: rgb(32, 34, 44);
   width: 44%;
 }
 .form-input{
@@ -29,6 +29,7 @@
 }
 .form-input:focus, .form-input1:focus{
   background: rgba(1, 1, 1, .2);
+  color: white;
 }
 p{
   color: aliceblue;
